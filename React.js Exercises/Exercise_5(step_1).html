@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>React exercise 6</title>
+  </head>
+  <body>
+    <!-- Root container for react components -->
+    <div id='root'></div>
+    
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    
+    <script type="text/babel">
+      const GithubRepositoryList = () => {
+        const [listItems, setListItems] = React.useState([]);
+   
+        React.useEffect(() => {
+          fetch('https://api.github.com/search/repositories?q=react')
+          .then((response) => response.json()) 
+          .then((responseData) => { 
+            setListItems(responseData.items);
+          })        
+        });
+
+        const itemRows = listItems.map((repository, index) => 
+            <tr key={index}>
+              <td>{repository.full_name}</td>
+              <td><a href={repository.html_url}>{repository.html_url}</a></td>
+            </tr>
+          )
+          
+        return (
+          <div>
+            <h2>Repositories</h2>
+            <table>
+              <tbody>
+                <tr><th>Name</th><th>URL</th></tr>
+                {itemRows}
+              </tbody>
+            </table>
+          </div>
+        );
+      }
+      ReactDOM.render(<GithubRepositoryList />, document.getElementById('root'));
+    </script>
+  </body>
+</html>

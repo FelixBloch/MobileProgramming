@@ -7,10 +7,18 @@ export default function App() {
   const [result, setResult] = useState('Guess a number between 1-100');
   const [guesses, setGuesses] = useState(0);
 
-  const buttonPressed = () =>{
+  const reset = () => {
+    setNumber('');
+    setRandomNumber(Math.floor(Math.random() * 100) + 1);
+    setResult('Guess a number between 1-100');
+    setGuesses(0);
+  }
+
+  const buttonPressed = () => {
     if(Number(number) == randomNumber){
       setResult(`${number} was correct!`);
       Alert.alert(`${number} was correct!`, `It took you ${guesses} guesses.`);
+      reset();
     }
     else if(Number(number) < randomNumber){
       setResult(`Your guess ${number} is too low!`);

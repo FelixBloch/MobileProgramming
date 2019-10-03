@@ -13,7 +13,6 @@ export default function App() {
 
   const getMap = () => {
     const url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + address  + '&key=AIzaSyBeoiuF7RhYJ091IX-XEwR7oHD7nTiNNI4';
-    console.log('https://maps.googleapis.com/maps/api/geocode/json?address=' + address  + '&key=AIzaSyBeoiuF7RhYJ091IX-XEwR7oHD7nTiNNI4');
     fetch(url)
     .then((response) => response.json())
     .then((responseJson) => {

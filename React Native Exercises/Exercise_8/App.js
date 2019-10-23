@@ -9,11 +9,11 @@ export default function App() {
     const pickerItems = this.state.rateKeys.map((item, index) => <Picker.Item key={index} label={item}></Picker.Item>)
     <View style={styles.container}>
       <View>
-      <Picker
-      selectedValue={this.state.language}
-      style={{height: 50, width: 100}}
-      onValueChange={(itemValue, itemIndex) =>
-      this.setState({language: itemValue})}>
+        <Picker
+        selectedValue={this.state.language}
+        style={{height: 50, width: 100}}
+        onValueChange={(itemValue, itemIndex) =>
+        this.setState({language: itemValue})}>
       </View>
     </View>
   );

@@ -20,7 +20,7 @@ const Map = (props) => {
     });
 
     useEffect(() => {
-        const url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + data  + '&key=AIzaSyAvmih3snfv380ixdkGQ6QhVjMapZqUzWQ';
+        const url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + data  + '&key=YOUR KEY';
         fetch(url)
         .then((response) => response.json())
         .then((responseJson) => {
